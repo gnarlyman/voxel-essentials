@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Generate
+namespace VoxelCube
 {
     public class VoxelEngine : MonoBehaviour
     {

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 
-namespace Generate
+namespace VoxelCube
 {
 
     public class World

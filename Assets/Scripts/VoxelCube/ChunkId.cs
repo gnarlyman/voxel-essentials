@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Generate
+namespace VoxelCube
 {
     public struct ChunkId : IEquatable<ChunkId>
     {
