@@ -66,33 +66,6 @@ namespace Generate
             0 + 4 * 5, 3 + 4 * 5, 2 + 4 * 5
         };
 
-        static Vector3 up = Vector3.up;
-        static Vector3 down = Vector3.down;
-        static Vector3 front = Vector3.forward;
-        static Vector3 back = Vector3.back;
-        static Vector3 left = Vector3.left;
-        static Vector3 right = Vector3.right;
-        
-        private static readonly Vector3[] CubeNormals = {
-            // Bottom
-            down, down, down, down,
-            
-            // Left
-            left, left, left, left,
-            
-            // Front
-            front, front, front, front,
-            
-            // Back
-            back, back, back, back,
-            
-            // Right
-            right, right, right, right,
-            
-            // Top
-            up, up, up, up
-        };
-
         public ushort this[int x, int y, int z]
         {
             get => _voxels[x * 16 * 16 + y * 16 + z];
@@ -128,7 +101,6 @@ namespace Generate
                         var verticesPos = vertices.Count;
                         vertices.AddRange(_cubeVertices.Select(vert => pos + vert));
                         triangles.AddRange(_cubeTriangles.Select(tri => verticesPos + tri));
-                        normals.AddRange(CubeNormals);
                     }
                 }
             }
@@ -141,10 +113,7 @@ namespace Generate
             mesh.Clear();
             mesh.SetVertices(vertices);
             mesh.SetTriangles(triangles.ToArray(), 0);
-            // mesh.SetNormals(normals);
             mesh.RecalculateNormals();
-
-            _meshFilter.sharedMesh = mesh;
         }
     }
     
